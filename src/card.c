@@ -8,7 +8,7 @@
         
 #define CASE_ENUMS_TO_PRETTY( ENUM_CSUIT, ENUM_CVAL, OUT_STR ) \
     case ENUM_CVAL : \
-        OUT_STR = ANSI_COLOUR_##ENUM_CSUIT #ENUM_CVAL ANSI_COLOUR_RESET; \
+        OUT_STR = CARD_COLOUR_##ENUM_CSUIT #ENUM_CVAL CARD_COLOUR_RESET; \
         break;
 
         
@@ -19,6 +19,11 @@ Card_t card_CreateCard( CardSuit_e eSuit, CardValue_e eValue )
     aCard.eValue = eValue;
     
     return aCard;
+}
+
+void card_DestroyCard( Card_t aCard )
+{
+	// empty implementation
 }
 
 const char* card_GetSuitString( CardSuit_e eSuit )
@@ -158,6 +163,27 @@ const char* card_GetPrettyPrint( CardSuit_e eSuit, CardValue_e eValue )
             break;
             
         case WILD:
+			switch( eValue )
+            {
+				case WILDDRAWFOUR:
+					returnString =  CARD_COLOUR_YELLOW "DR" \
+									CARD_COLOUR_BLUE "AW" \
+									CARD_COLOUR_RED " FO" \
+									CARD_COLOUR_GREEN "UR" \
+									CARD_COLOUR_RESET;
+					break;
+					
+				case WILDCARD:
+					returnString =  CARD_COLOUR_YELLOW "W" \
+									CARD_COLOUR_BLUE "I" \
+									CARD_COLOUR_RED "L" \
+									CARD_COLOUR_GREEN "D" \
+									CARD_COLOUR_RESET;
+					break;
+					
+				default:
+                    returnString = "Invalid value string for YELLOW";
+			}
             break;
             
         default:

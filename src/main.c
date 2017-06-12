@@ -3,12 +3,13 @@
 
 int main()
 {
-    printf( "%s\n", card_GetPrettyPrint(RED, ONE) );
-    printf( "%s\n", card_GetPrettyPrint(GREEN, DRAWTWO) );
-    printf( "%s\n", card_GetPrettyPrint(BLUE, REVERSE) );
-    printf( "%s\n", card_GetPrettyPrint(YELLOW, ZERO) );
-    
-    printf( "%sHello World%s\n", ANSI_COLOUR_BLUE, ANSI_COLOUR_RESET );
-    
+    Deck_t unoDeck = deck_InitDeck();
+	
+	deck_PrintDeck( &unoDeck );
+	
+	deck_ShuffleDeck( &unoDeck );
+	
+	deck_PrintDeck( &unoDeck );
+	
     return 0;
 }
