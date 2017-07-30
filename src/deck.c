@@ -1,6 +1,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include "deck.h"
 
 int cardQtyMatrix[5][15] =
@@ -28,7 +29,7 @@ Deck_t deck_InitDeck()
 			for( k = 0; k < cardQtyMatrix[i][j]; k++ )
 			{
 				Card_t aCard = {i,j};
-				deck_AddCard( &aDeck, aCard);
+				deck_PushCard( &aDeck, aCard);
 			}
 		}
 	}
@@ -62,7 +63,7 @@ void deck_PrintDeck( Deck_t* const pDeck )
 	}
 }
 
-void deck_AddCard( Deck_t* pDeck, Card_t aCard )
+void deck_PushCard( Deck_t* pDeck, Card_t aCard )
 {
 	if( pDeck->cardCount >= DECK_SIZE )
 	{
@@ -101,6 +102,19 @@ Card_t deck_RemoveCardAt( Deck_t* pDeck, int index )
 	return removedCard;
 }
 
+Card_t deck_PopCard( Deck_t* pDeck )
+{
+    return deck_RemoveCardAt( pDeck, pDeck->cardCount-1 );
+}
+
+const Card_t deck_PeekTop( Deck_t* const pDeck )
+{
+    if( !deck_IsEmpty( pDeck ) )
+    {
+        return pDeck->cards[pDeck->cardCount-1];
+    }
+}
+
 BOOL_t deck_IsEmpty( Deck_t* const pDeck )
 {
 	if( pDeck->cardCount == 0 )
@@ -119,7 +133,7 @@ void deck_ShuffleDeck( Deck_t* pDeck )
 	while( !deck_IsEmpty( pDeck ) )
 	{
 		tmpCard = deck_RemoveCardAt( pDeck, rand() % pDeck->cardCount );
-		deck_AddCard( &shuffledDeck, tmpCard );
+		deck_PushCard( &shuffledDeck, tmpCard );
 	}
 	
 	*pDeck = shuffledDeck;

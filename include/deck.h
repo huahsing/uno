@@ -20,9 +20,13 @@ void deck_DestroyDeck( Deck_t aDeck );
 
 void deck_PrintDeck( Deck_t* const pDeck );
 
-void deck_AddCard( Deck_t* pDeck, Card_t aCard );
+void deck_PushCard( Deck_t* pDeck, Card_t aCard );
 
 Card_t deck_RemoveCardAt( Deck_t* pDeck, int index );
+
+Card_t deck_PopCard( Deck_t* pDeck );
+
+const Card_t deck_PeekTop( Deck_t* const pDeck );
 
 BOOL_t deck_IsEmpty( Deck_t* const pDeck );
 

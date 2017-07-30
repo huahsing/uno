@@ -9,10 +9,10 @@ LIBS=-lm
 
 APP=uno
 
-_DEPS = card.h deck.h utility.h
+_DEPS = card.h deck.h utility.h game.h
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
-_OBJ = main.o card.o deck.o
+_OBJ = main.o card.o deck.o game.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 

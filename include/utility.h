@@ -13,9 +13,14 @@
 #define ANSI_COLOUR_BOLD    "\x1b[1m"
 #define ANSI_COLOUR_LIGHTGREY_BG "\x1b[47m"
 
+
+#define ANSI_CLEAR_SCREEN   "\x1b[2J"
+
 #define BOOL_TRUE 1
 #define BOOL_FALSE 0
 
 typedef int BOOL_t;
+
+#define CLEAR_SCREEN() printf( ANSI_CLEAR_SCREEN );
 
 #endif
