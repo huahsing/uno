@@ -182,7 +182,7 @@ const char* card_GetPrettyPrint( CardSuit_e eSuit, CardValue_e eValue )
 					break;
 					
 				default:
-                    returnString = "Invalid value string for YELLOW";
+                    returnString = "Invalid value string for WILD";
 			}
             break;
             
