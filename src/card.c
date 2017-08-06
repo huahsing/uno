@@ -44,6 +44,43 @@ const char* card_GetSuitString( CardSuit_e eSuit )
     return returnString;
 }
 
+const char* card_GetColouredSuitString( CardSuit_e eSuit )
+{
+    const char* returnString;
+    
+    switch( eSuit )
+    {
+        case RED:
+            returnString =  CARD_COLOUR_RED "RED" CARD_COLOUR_RESET;
+            break;
+        
+        case GREEN:
+            returnString =  CARD_COLOUR_GREEN "GREEN" CARD_COLOUR_RESET;
+            break;
+            
+        case BLUE:
+            returnString =  CARD_COLOUR_BLUE "BLUE" CARD_COLOUR_RESET;
+            break;
+            
+        case YELLOW:
+            returnString =  CARD_COLOUR_YELLOW "YELLOW" CARD_COLOUR_RESET;
+            break;
+            
+        case WILD:
+            returnString =  CARD_COLOUR_YELLOW "W" \
+                            CARD_COLOUR_BLUE "I" \
+                            CARD_COLOUR_RED "L" \
+                            CARD_COLOUR_GREEN "D" \
+                            CARD_COLOUR_RESET;
+            break;
+            
+        default: 
+            returnString = "Invalid suit string";
+    }
+    
+    return returnString;
+}
+
 const char* card_GetValueString( CardValue_e eValue )
 {
     const char* returnString;

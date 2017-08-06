@@ -60,6 +60,8 @@ void card_DestroyCard( Card_t aCard );
 // get the string from the enum value of a suit
 const char* card_GetSuitString( CardSuit_e eSuit );
 
+const char* card_GetColouredSuitString( CardSuit_e eSuit );
+
 // get the string from the enum value of a value
 const char* card_GetValueString( CardValue_e eValue );
 

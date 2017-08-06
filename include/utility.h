@@ -21,6 +21,10 @@
 
 typedef int BOOL_t;
 
-#define CLEAR_SCREEN() printf( ANSI_CLEAR_SCREEN );
+#if 0
+    #define CLEAR_SCREEN() printf( ANSI_CLEAR_SCREEN )
+#else
+    #define CLEAR_SCREEN() printf("\n\n##################################################\n\n");
+#endif
 
 #endif

@@ -113,6 +113,8 @@ const Card_t deck_PeekTop( Deck_t* const pDeck )
     {
         return pDeck->cards[pDeck->cardCount-1];
     }
+    else
+        return (Card_t) {-1,-1};
 }
 
 BOOL_t deck_IsEmpty( Deck_t* const pDeck )
