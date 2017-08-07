@@ -320,7 +320,7 @@ void displayPlayersAndTurnsState()
 int displayCurrentPlayerHand()
 {
     printf("\n>>>>>>>>>>>>>>>>>>>>\n");
-    printf( ANSI_COLOUR_MAGENTA "%s " ANSI_COLOUR_GREEN, your current hand is:\n" ANSI_COLOUR_RESET, 
+    printf( ANSI_COLOUR_MAGENTA "%s " ANSI_COLOUR_GREEN ", your current hand is:\n" ANSI_COLOUR_RESET, 
             gameData.playerNames[gameData.currentPlayer] );
     deck_PrintDeck( &gameData.playerHands[gameData.currentPlayer] );
     printf("<<<<<<<<<<<<<<<<<<<<\n");
