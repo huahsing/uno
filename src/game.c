@@ -324,6 +324,8 @@ int displayCurrentPlayerHand()
             gameData.playerNames[gameData.currentPlayer] );
     deck_PrintDeck( &gameData.playerHands[gameData.currentPlayer] );
     printf("<<<<<<<<<<<<<<<<<<<<\n");
+    
+    return 0;
 }
 
 void drawCardsForCurrentPlayer(int count)
